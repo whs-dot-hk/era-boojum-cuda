@@ -1,7 +1,7 @@
 #![allow(incomplete_features)]
 #![feature(generic_const_exprs)]
 
-use copy_to_output::copy_to_output;
+use copy_dir::copy_dir;
 use cudart_sys::{cuda_lib_path, cuda_path};
 use std::env;
 
@@ -10,7 +10,7 @@ mod poseidon_constants;
 mod template;
 
 fn main() {
-    copy_to_output("native", &env::var("PROFILE").unwrap()).expect("Could not copy");
+    copy_dir("../native", &env::var("OUT_DIR").unwrap()).expect("Could not copy");
     gates::generate();
     poseidon_constants::generate();
     #[cfg(target_os = "macos")]
