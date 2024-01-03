@@ -10,10 +10,10 @@ boojum = { git = "https://github.com/matter-labs/era-boojum.git", branch = "main
 cudart-sys = { git = "https://github.com/matter-labs/era-cuda.git", branch = "main", package = "cudart-sys" }
 cmake = "^0"
 itertools = "^0"
+copy_to_output = "2.2.0"
 
 [dependencies]
 boojum = { git = "https://github.com/matter-labs/era-boojum.git", branch = "main" }
-copy_to_output = "2.2.0"
 cudart = { git = "https://github.com/matter-labs/era-cuda.git", branch = "main", package = "cudart" }
 cudart-sys = { git = "https://github.com/matter-labs/era-cuda.git", branch = "main", package = "cudart-sys" }
 itertools = "^0"
@@ -21,7 +21,6 @@ lazy_static = "^1"
 
 [dev-dependencies]
 blake2 = "^0"
-copy_to_output = "2.2.0"
 criterion = "^0"
 criterion-cuda = { git = "https://github.com/matter-labs/era-cuda.git", branch = "main", package = "criterion-cuda" }
 criterion-macro = "^0"
