@@ -1,6 +1,7 @@
 use std::collections::HashSet;
 use std::env;
 use std::fmt::Display;
+use std::path::PathBuf;
 
 use boojum::algebraic_props::poseidon2_parameters::{
     Poseidon2GoldilocksExternalMatrix, Poseidon2GoldilocksInnerMatrix,
