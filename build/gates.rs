@@ -183,7 +183,7 @@ fn generate_cuda(descriptions: &[Description]) {
 fn generate_rust(descriptions: &[Description]) {
     const TEMPLATE_PATH: &str = "src/gates_data_template.rs";
     let out_path = PathBuf::from(env::var("OUT_DIR").unwrap());
-    let RESULT_PATH = out_path.join("gates_data.rs").to_str();
+    let RESULT_PATH = out_path.join("gates_data.rs").to_str().expect("REASON");
     let mut hash_map = String::new();
     let mut bindings = String::new();
     let mut mappings = String::new();
