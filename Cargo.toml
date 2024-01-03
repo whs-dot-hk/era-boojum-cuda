@@ -21,6 +21,7 @@ lazy_static = "^1"
 
 [dev-dependencies]
 blake2 = "^0"
+copy_to_output = "2.2.0"
 criterion = "^0"
 criterion-cuda = { git = "https://github.com/matter-labs/era-cuda.git", branch = "main", package = "criterion-cuda" }
 criterion-macro = "^0"
