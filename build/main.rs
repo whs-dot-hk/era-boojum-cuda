@@ -10,7 +10,7 @@ mod poseidon_constants;
 mod template;
 
 fn main() {
-    copy_dir("../native", &env::var("OUT_DIR").unwrap()).expect("Could not copy");
+    copy_dir("./native", &env::var("OUT_DIR").unwrap()).expect("Could not copy");
     gates::generate();
     poseidon_constants::generate();
     #[cfg(target_os = "macos")]
