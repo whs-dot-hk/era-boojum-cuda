@@ -1,4 +1,5 @@
 use std::collections::HashSet;
+use std::env;
 use std::fmt::Display;
 
 use boojum::algebraic_props::poseidon2_parameters::{
@@ -180,7 +181,8 @@ fn generate_cuda(descriptions: &[Description]) {
 
 fn generate_rust(descriptions: &[Description]) {
     const TEMPLATE_PATH: &str = "src/gates_data_template.rs";
-    const RESULT_PATH: &str = "src/gates_data.rs";
+    let out_path = PathBuf::from(env::var("OUT_DIR").unwrap());
+    const RESULT_PATH: &str = out_path.join("gates_data.rs");
     let mut hash_map = String::new();
     let mut bindings = String::new();
     let mut mappings = String::new();
