@@ -62,7 +62,7 @@ fn generate_cuda(descriptions: &[Description]) {
     let TEMPLATE_PATH = binding.to_str().expect("REASON");
     let out_path2 = PathBuf::from(env::var("OUT_DIR").unwrap());
     let binding2 = out_path2.join("native/gates.cu");
-    let RESULT_PATH = binding.to_str().expect("REASON");
+    let RESULT_PATH = binding2.to_str().expect("REASON");
 
     let mut code = String::new();
     let s = &mut code;

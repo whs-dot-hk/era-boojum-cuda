@@ -112,7 +112,7 @@ pub(super) fn generate() {
     let TEMPLATE_PATH = binding.to_str().expect("REASON");
     let out_path2 = PathBuf::from(env::var("OUT_DIR").unwrap());
     let binding2 = out_path2.join("native/poseidon_constants.cuh");
-    let RESULT_PATH = binding.to_str().expect("REASON");
+    let RESULT_PATH = binding2.to_str().expect("REASON");
 
     let replacements = [
         ("RATE", RATE.to_string()),
