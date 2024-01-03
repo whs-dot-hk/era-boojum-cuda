@@ -3,6 +3,7 @@
 
 use copy_to_output::copy_to_output;
 use cudart_sys::{cuda_lib_path, cuda_path};
+use std::env;
 
 mod gates;
 mod poseidon_constants;
