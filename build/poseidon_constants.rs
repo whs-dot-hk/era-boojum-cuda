@@ -4,9 +4,6 @@ use boojum::implementations::poseidon_goldilocks_params::*;
 
 // use itertools::Itertools;
 
-const TEMPLATE_PATH: &str = "native/poseidon_constants_template.cuh";
-const RESULT_PATH: &str = "native/poseidon_constants.cuh";
-
 fn split_u64(value: u64) -> (u32, u32) {
     let lo = value as u32;
     let hi = (value >> 32) as u32;
@@ -110,6 +107,13 @@ fn get_all_round_constants() -> String {
 // }
 
 pub(super) fn generate() {
+    let out_path = PathBuf::from(env::var("OUT_DIR").unwrap());
+    let binding = out_path.join("native/poseidon_constants_template.cuh");
+    let TEMPLATE_PATH = binding.to_str().expect("REASON");
+    let out_path2 = PathBuf::from(env::var("OUT_DIR").unwrap());
+    let binding2 = out_path2.join("native/poseidon_constants.cuh");
+    let RESULT_PATH = binding.to_str().expect("REASON");
+
     let replacements = [
         ("RATE", RATE.to_string()),
         ("CAPACITY", CAPACITY.to_string()),

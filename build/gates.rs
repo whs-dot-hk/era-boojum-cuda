@@ -57,8 +57,13 @@ pub(super) fn generate() {
 }
 
 fn generate_cuda(descriptions: &[Description]) {
-    const TEMPLATE_PATH: &str = "native/gates_template.cu";
-    const RESULT_PATH: &str = "native/gates.cu";
+    let out_path = PathBuf::from(env::var("OUT_DIR").unwrap());
+    let binding = out_path.join("native/gates_template.cu");
+    let TEMPLATE_PATH = binding.to_str().expect("REASON");
+    let out_path2 = PathBuf::from(env::var("OUT_DIR").unwrap());
+    let binding2 = out_path2.join("native/gates.cu");
+    let RESULT_PATH = binding.to_str().expect("REASON");
+
     let mut code = String::new();
     let s = &mut code;
     new_line(s);
