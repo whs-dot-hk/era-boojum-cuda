@@ -12,12 +12,13 @@ mod template;
 fn main() {
     let out_path = std::path::PathBuf::from(env::var("OUT_DIR").unwrap());
     let binding = out_path.join("native");
-    copy_dir("./native", binding.to_str().expect("REASON")).expect("Could not copy");
+    let test = binding.to_str().expect("REASON");
+    copy_dir("./native", test).expect("Could not copy");
     gates::generate();
     poseidon_constants::generate();
     #[cfg(target_os = "macos")]
     std::process::exit(0);
-    let dst = cmake::Config::new("native")
+    let dst = cmake::Config::new(test)
         .profile("Release")
         .define(
             "CMAKE_CUDA_ARCHITECTURES",
