@@ -10,7 +10,9 @@ mod poseidon_constants;
 mod template;
 
 fn main() {
-    copy_dir("./native", &env::var("OUT_DIR").unwrap()).expect("Could not copy");
+    let out_dir = std::path::PathBuf::from(env::var("OUT_DIR").unwrap());
+    let binding = out_path.join("native");
+    copy_dir("./native", binding.to_str().expect("REASON")).expect("Could not copy");
     gates::generate();
     poseidon_constants::generate();
     #[cfg(target_os = "macos")]
