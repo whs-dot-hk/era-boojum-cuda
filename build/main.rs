@@ -29,7 +29,7 @@ fn main() {
     let out_path2 = std::path::PathBuf::from(env::var("OUT_DIR").unwrap());
     let binding2 = out_path2.join("native");
     let test = binding2.to_str().expect("REASON");
-    copy_dir_all(out_path, binding2).expect("Could not copy");
+    copy_dir_all(out_path, binding2.clone()).expect("Could not copy");
     gates::generate();
     poseidon_constants::generate();
     #[cfg(target_os = "macos")]
