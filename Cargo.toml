@@ -10,7 +10,6 @@ boojum = { git = "https://github.com/matter-labs/era-boojum.git", branch = "main
 cudart-sys = { git = "https://github.com/matter-labs/era-cuda.git", branch = "main", package = "cudart-sys" }
 cmake = "^0"
 itertools = "^0"
-copy_dir = "0.1.3"
 
 [dependencies]
 boojum = { git = "https://github.com/matter-labs/era-boojum.git", branch = "main" }
