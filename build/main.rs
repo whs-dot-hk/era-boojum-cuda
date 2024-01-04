@@ -3,6 +3,7 @@
 
 use cudart_sys::{cuda_lib_path, cuda_path};
 use std::env;
+use std::path::Path;
 use std::{io, fs};
 
 mod gates;
